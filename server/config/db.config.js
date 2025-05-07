@@ -1,19 +1,14 @@
 // db.config.js
 const mysql = require('mysql2');
 
-const connection = mysql.createConnection({
-  host: 'localhost',         // Your DB host
-  user: 'root',              // Your DB username
- // Your DB password
-  database: 'tradecfd1'  // Your DB name
+const pool = mysql.createPool({
+  host: 'localhost',
+  user: 'root',
+  password: '', // <-- Add your password here
+  database: 'tradecfd1',
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
 });
 
-connection.connect((err) => {
-  if (err) {
-    console.error('Database connection failed:', err.stack);
-    return;
-  }
-  console.log('Connected to MySQL database.');
-});
-
-module.exports = connection;
+module.exports = pool.promise();
