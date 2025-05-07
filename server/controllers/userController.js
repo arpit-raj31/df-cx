@@ -10,7 +10,6 @@ exports.registerUser = async (req, res) => {
   const {
     userName,
     firstName,
-    lastName = "",
     email,
     mobile,
     password
