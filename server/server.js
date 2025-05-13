@@ -8,7 +8,7 @@ const userRoutes = require('./routes/userRoutes');
 
 // Enable CORS for a specific domain or for all origins (for development)
 app.use(cors({
-  origin: 'https://tradecfd.in', // change this to your actual frontend URL
+  origin: 'https://tradecfd.in/', // change this to your actual frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
